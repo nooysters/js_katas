@@ -23,7 +23,6 @@ describe('Array', () => {
       bracket type characters`, () => {
         assert.equal(true, balanced('{d}') )
         assert.equal(true, balanced('we()e') )
-        assert.equal(false, balanced('43_!fdgOOOHHH]^&') )
     })
 
     it(`returns true if there are multiple sets of brackets`, () => {
@@ -32,8 +31,14 @@ describe('Array', () => {
         assert.equal(true, balanced('4()3()90n{}{}fdg[OOOHHH]^&') )
     })
 
-    it(`returns false if the brackets are not in the proper order`, () => {
-        assert.equal(false, balanced('))))[](((('))
+    it(`returns false if the brackets are in the wrong order`, () => {
+        assert.equal(false, balanced(')))[](((') )
+        assert.equal(false, balanced(')()[](') )
     })
+
+    it(`returns true if the brackets are balanced and nested`, () => {
+        assert.equal(true, balanced('[{({})}]') )
+    })
+
   });
 });

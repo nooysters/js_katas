@@ -1,25 +1,33 @@
 var _ = require('lodash/core');
-const chars = [
-  '[]',
-  '{}',
-  '()'
-]
+
+const open = '[{('
+const closed = ']})'
 
 module.exports = (str) => {
   if (!str) return false
-  var balanced = false
-
   str = str.split('')
-  str = _.filter(str, (i)=>{
-    return ~chars.join('').indexOf(i)
-  })
+
+  let chars = open+closed
+
+  str = _.filter(str, (i)=> { return ~chars.indexOf(i) })
 
   if(str.length % 2 != 0) return false
 
-  chars.forEach( (c) => {
-    if(c === str.join('')) balanced = true
+  let current_search = [];
+  let balanced = true
+
+  str.forEach((s) => {
+    if (~open.indexOf(s)) current_search.push(s)
+
+    if(~closed.indexOf(s)) {
+      if(current_search[current_search.length - 1] === open[closed.indexOf(s)]) {
+        current_search.pop()
+      }
+      else {
+        balanced = false
+      }
+    }
   })
 
-  // regex, recursion ??
   return balanced
 }
