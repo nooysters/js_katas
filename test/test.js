@@ -1,5 +1,4 @@
 const assert = require('chai').assert
-const should = require('chai').should()
 const expect = require('chai').expect
 const balanced = require('../src/balanced_braces.js')
 
@@ -10,7 +9,7 @@ describe('Array', () => {
     })
 
     it('returns false if there is an odd number of brackets', ()=>{
-      assert.equal(false, balanced(']') )
+      assert.equal(false, balanced('[') )
       assert.equal(false, balanced('4()3()90n{fdg[OOOHHH]^&') )
     })
 
