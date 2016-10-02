@@ -1,11 +1,12 @@
 const assert = require('chai').assert
 const should = require('chai').should()
+const expect = require('chai').expect
 const balanced = require('../src/balanced_braces.js')
 
 describe('Array', () => {
   describe('#balanced()', () => {
-    it('returns false if no string is given', () => {
-      assert.equal(false, balanced());
+    it('throws an error if no string is given', () => {
+      expect(balanced).to.throw('Must pass a string.');
     })
 
     it('returns false if there is an odd number of brackets', ()=>{
@@ -37,7 +38,8 @@ describe('Array', () => {
     })
 
     it(`returns true if the brackets are balanced and nested`, () => {
-        assert.equal(true, balanced('[{({})}]') )
+        assert.equal(true, balanced('[{({[]})}]') )
+        assert.equal(true, balanced('[{({[]})}]{}') )
     })
 
   });
