@@ -28,10 +28,7 @@ module.exports = (str) => {
       continue
     }
 
-    if (searchFor[searchFor.length - 1] === open[closed.indexOf(str[i])]) {
-      searchFor.pop()
-    }
-    else { return false }
+    if (searchFor.pop() !== open[closed.indexOf(str[i])]) return false
   }
 
   return true
