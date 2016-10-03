@@ -25,7 +25,7 @@ module.exports = (str) => {
   for (var i=0; i<str.length; i++) {
     if (~open.indexOf(str[i])) {
       searchFor.push(str[i])
-      break
+      continue
     }
 
     if (searchFor[searchFor.length - 1] === open[closed.indexOf(str[i])]) {

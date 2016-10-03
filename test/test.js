@@ -34,6 +34,7 @@ describe('Array', () => {
     it(`returns false if the brackets are in the wrong order`, () => {
         assert.equal(false, balanced(')))[](((') )
         assert.equal(false, balanced(')()[](') )
+        assert.equal(false, balanced('[]}{()') )
     })
 
     it(`returns true if the brackets are balanced and nested`, () => {
