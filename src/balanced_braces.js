@@ -22,17 +22,17 @@ module.exports = (str) => {
   let searchFor = [];
   let balanced = true
 
-  str.forEach((s) => {
-    if (~open.indexOf(s)) {
-      searchFor.push(s)
-      return
+  for (var i=0; i<str.length; i++) {
+    if (~open.indexOf(str[i])) {
+      searchFor.push(str[i])
+      break
     }
 
-    if (searchFor[searchFor.length - 1] === open[closed.indexOf(s)]) {
+    if (searchFor[searchFor.length - 1] === open[closed.indexOf(str[i])]) {
       searchFor.pop()
     }
-    else { balanced = false }
-  })
+    else { return false }
+  }
 
-  return balanced
+  return true
 }
