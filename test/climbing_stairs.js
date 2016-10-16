@@ -7,6 +7,7 @@ describe('#balanced()', () => {
   it('has no steps', () => {
     assert.equal(0, climbStairs(0))
   })
+
   it('has only one step', () => {
     assert.equal(1, climbStairs(1))
   })
