@@ -15,7 +15,7 @@ function permute(args) {
   let d = args.reduce((acc, v) => {
     return acc *= fact(v)
   }, 1)
-  let n = args.reduce((acc, v)=>{
+  let n = args.reduce((acc, v) => {
     return acc+=v
   }, 0)
   return fact(n) / d
