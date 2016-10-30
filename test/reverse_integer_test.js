@@ -18,4 +18,8 @@ describe('reverseInteger()', () => {
   it('reverses  1001001', () => {
     assert.equal(1001001, reverseInteger(1001001))
   })
+
+  it('works with negative numbers', () => {
+    assert.equal(-432, reverseInteger(-234))
+  })
 })
